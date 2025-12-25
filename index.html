@@ -34,19 +34,43 @@
         .banner {
             width: 100%;
             max-width: 1400px;
-            height: 400px;
+            height: 500px;
             margin: 0 auto;
-            background-color: #0a0000;
-            background-image: url('banner.jpg'); /* НАЗОВИТЕ ВАШУ ФОТОГРАФИЮ "banner.jpg" и поместите в ту же папку */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, #0a0000 0%, #1a0000 50%, #0a0000 100%);
             border: 3px solid #8B0000;
             box-shadow: 0 10px 50px rgba(139, 0, 0, 0.4),
                         0 0 100px rgba(139, 0, 0, 0.2);
             border-radius: 15px;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 60px;
+        }
+
+        .banner h1 {
+            font-size: 72px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.8),
+                         0 0 60px rgba(139, 0, 0, 0.5),
+                         0 4px 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .banner p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #f5f5f5;
+            text-align: center;
+            max-width: 900px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
         .banner::after {
@@ -170,7 +194,18 @@
         /* Адаптивность для планшетов */
         @media (max-width: 1024px) {
             .banner {
-                height: 350px;
+                height: 450px;
+                padding: 40px 50px;
+            }
+
+            .banner h1 {
+                font-size: 60px;
+                letter-spacing: 6px;
+                margin-bottom: 25px;
+            }
+
+            .banner p {
+                font-size: 18px;
             }
 
             .subscribe-btn {
@@ -194,8 +229,19 @@
             }
 
             .banner {
-                height: 280px;
+                height: 380px;
                 border-radius: 10px;
+                padding: 35px 30px;
+            }
+
+            .banner h1 {
+                font-size: 48px;
+                letter-spacing: 4px;
+                margin-bottom: 20px;
+            }
+
+            .banner p {
+                font-size: 16px;
             }
 
             .subscribe-section {
@@ -230,9 +276,21 @@
             }
 
             .banner {
-                height: 220px;
+                height: 320px;
                 border-radius: 8px;
                 border-width: 2px;
+                padding: 25px 20px;
+            }
+
+            .banner h1 {
+                font-size: 36px;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
+
+            .banner p {
+                font-size: 14px;
+                line-height: 1.6;
             }
 
             .subscribe-section {
@@ -267,7 +325,17 @@
 
         @media (max-width: 360px) {
             .banner {
-                height: 180px;
+                height: 280px;
+            }
+
+            .banner h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+            }
+
+            .banner p {
+                font-size: 13px;
             }
 
             .subscribe-btn {
@@ -284,7 +352,10 @@
 <body>
     <!-- Баннер -->
     <div class="banner-wrapper">
-        <div class="banner"></div>
+        <div class="banner">
+            <h1>SLIPKNOT</h1>
+            <p>Команда "SlipKnot" 2026: международные амбиции и высочайшее качество. От масштабных проектов до повседневных задач – мы здесь, чтобы помочь вам в реальной жизни и в сети. Только легальный, важный и интересный контент.</p>
+        </div>
     </div>
 
     <!-- Кнопка подписки -->
@@ -295,14 +366,5 @@
     </div>
 
     <div class="divider"></div>
-
-    <!-- Секция с текстом -->
-    <div class="content-section">
-        <div class="container">
-            <div class="content-box">
-                <p>Команда "SlipKnot" 2026: международные амбиции и высочайшее качество. От масштабных проектов до повседневных задач – мы здесь, чтобы помочь вам в реальной жизни и в сети. Только легальный, важный и интересный контент.</p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
