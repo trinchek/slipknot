@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slipknot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #000000, #0a0000, #1a0000, #2a0000, #1a0000, #0a0000, #000000);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Баннер */
+        .banner {
+            width: 100%;
+            height: 60vh;
+            min-height: 300px;
+            max-height: 500px;
+            background-color: #1a0000;
+            background-image: url('banner.jpg'); /* НАЗОВИТЕ ВАШУ ФОТОГРАФИЮ "banner.jpg" и поместите в ту же папку */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 30px rgba(220, 20, 60, 0.6);
+            position: relative;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+        }
+
+        /* Кнопка подписки */
+        .subscribe-section {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #1a0000 0%, #2a0000 50%, #1a0000 100%);
+            background-size: 200% 200%;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 60px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(139, 0, 0, 0.8),
+                        0 0 60px rgba(139, 0, 0, 0.5),
+                        inset 0 2px 4px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(139, 0, 0, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 8px 30px rgba(139, 0, 0, 0.8),
+                            0 0 60px rgba(139, 0, 0, 0.5),
+                            inset 0 2px 4px rgba(0, 0, 0, 0.8);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(139, 0, 0, 1),
+                            0 0 80px rgba(139, 0, 0, 0.7),
+                            inset 0 2px 4px rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        .subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(139, 0, 0, 0.15), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .subscribe-btn:hover {
+            background-position: 100% 0;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 45px rgba(139, 0, 0, 1),
+                        0 0 100px rgba(139, 0, 0, 0.8),
+                        inset 0 2px 4px rgba(0, 0, 0, 0.9);
+            border-color: rgba(139, 0, 0, 0.8);
+        }
+
+        .subscribe-btn:active {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        /* Секция контента */
+        .content-section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .content-box {
+            background: rgba(26, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(220, 20, 60, 0.5);
+            border-radius: 20px;
+            padding: 50px;
+            min-height: 300px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                        0 0 60px rgba(220, 20, 60, 0.2);
+        }
+
+        .content-box p {
+            line-height: 1.8;
+            font-size: 18px;
+            color: #e0e0e0;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 1024px) {
+            .banner {
+                height: 50vh;
+            }
+
+            .subscribe-btn {
+                padding: 18px 50px;
+                font-size: 20px;
+            }
+
+            .content-box {
+                padding: 40px 30px;
+            }
+        }
+
+        /* Адаптивность для смартфонов */
+        @media (max-width: 768px) {
+            .banner {
+                height: 40vh;
+                min-height: 250px;
+            }
+
+            .subscribe-section {
+                padding: 40px 15px;
+            }
+
+            .subscribe-btn {
+                padding: 16px 40px;
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .content-box {
+                padding: 30px 20px;
+                border-radius: 15px;
+            }
+
+            .content-box p {
+                font-size: 16px;
+            }
+
+            .content-section {
+                padding: 50px 15px;
+            }
+        }
+
+        /* Адаптивность для маленьких смартфонов */
+        @media (max-width: 480px) {
+            .banner {
+                height: 35vh;
+                min-height: 200px;
+            }
+
+            .subscribe-section {
+                padding: 30px 10px;
+            }
+
+            .subscribe-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+                letter-spacing: 0.5px;
+                border-radius: 50px;
+            }
+
+            .content-box {
+                padding: 25px 15px;
+            }
+
+            .content-box p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .content-section {
+                padding: 40px 10px;
+            }
+        }
+
+        /* Очень маленькие экраны */
+        @media (max-width: 360px) {
+            .banner {
+                height: 30vh;
+                min-height: 180px;
+            }
+
+            .subscribe-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .content-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Баннер -->
+    <div class="banner"></div>
+
+    <!-- Кнопка подписки -->
+    <div class="subscribe-section">
+        <a href="https://t.me/+GgyjgdUn0TQ1Nzcy" class="subscribe-btn" target="_blank">
+            Slipknot - подписаться
+        </a>
+    </div>
+
+    <!-- Секция с текстом -->
+    <div class="content-section">
+        <div class="container">
+            <div class="content-box">
+                <!-- ВСТАВЬТЕ СВОЙ ТЕКСТ СЮДА -->
+                <p>Здесь будет ваш текст...</p>
+                <!-- КОНЕЦ МЕСТА ДЛЯ ТЕКСТА -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
